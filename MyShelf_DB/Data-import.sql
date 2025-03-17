@@ -41,9 +41,16 @@ INSERT [dbo].[Format] ([FormatID], [FormatName]) VALUES (2, N'Hardcover')
 GO
 INSERT [dbo].[Format] ([FormatID], [FormatName]) VALUES (3, N'Kindle')
 GO
+INSERT [dbo].[Genre] ([GenreID], [GenreName]) VALUES (1, N'Action')
+GO
+INSERT [dbo].[Genre] ([GenreID], [GenreName]) VALUES (2, N'Fiction')
+GO
+INSERT [dbo].[Genre] ([GenreID], [GenreName]) VALUES (3, N'Romance')
+GO
 INSERT [dbo].[AccountType] ([AccountTypeID], [AccountTypeName]) VALUES (1, N'Admin')
 GO
 INSERT [dbo].[AccountType] ([AccountTypeID], [AccountTypeName]) VALUES (2, N'Editor')
 GO
 INSERT [dbo].[AccountType] ([AccountTypeID], [AccountTypeName]) VALUES (3, N'RegularUser')
 GO
+
