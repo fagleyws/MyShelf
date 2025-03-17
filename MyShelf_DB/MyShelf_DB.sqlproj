@@ -6,8 +6,11 @@
     <Name>MyShelf_DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
+
     <ProjectGuid>{47ec4862-1e2d-46ba-92ad-c63c0abe8a16}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+
+
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
