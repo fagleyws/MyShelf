@@ -25,6 +25,12 @@ INSERT [dbo].[User] ([UserID], [UserFirstName], [UserLastName], [UserProfileImag
 GO
 SET IDENTITY_INSERT [dbo].[User] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Author] ON 
+GO
+INSERT [dbo].[Author] ([AuthorID], [AuthorFirstName], [AuthorLastName], [AuthorProfileImage], [AuthorDescription], [AuthorWebsite]) VALUES (1, N'John', N'Shekleton', N'https://www.goodreads.com/photo/author/5054023.John_Shekleton', N'John Shekleton is a writer living in Minneapolis. He is a former member of the Jesuits, a Catholic religious order. This committed society of men introduced him to the wonders of philosophy and allowed him to engage deeply with the world.', N'https://johnshekletonauthor.com/')
+GO
+SET IDENTITY_INSERT [dbo].[Author] OFF
+GO
 INSERT [dbo].[Format] ([FormatID], [FormatName]) VALUES (1, N'Paperback')
 GO
 INSERT [dbo].[Format] ([FormatID], [FormatName]) VALUES (2, N'Hardcover')
@@ -49,11 +55,11 @@ INSERT [dbo].[Language] ([LanguageID], [LanguageName]) VALUES (8, N'Japanese')
 GO
 SET IDENTITY_INSERT [dbo].[Publisher] ON 
 GO
-INSERT [dbo].[Publisher] ([PublisherID], [PublishName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (1, N'Random House Worlds', NULL, N'Random House Worlds', NULL, NULL, NULL)
+INSERT [dbo].[Publisher] ([PublisherID], [PublisherName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (1, N'Random House Worlds', NULL, N'Random House Worlds', NULL, NULL, NULL)
 GO
-INSERT [dbo].[Publisher] ([PublisherID], [PublishName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (2, N'Berkley Books', N'', N'Berkley Books is an American imprint founded in 1955 by Charles Byrne and Frederic Klein owned by the Penguin Group unit of Penguin Random House.', NULL, NULL, NULL)
+INSERT [dbo].[Publisher] ([PublisherID], [PublisherName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (2, N'Berkley Books', N'', N'Berkley Books is an American imprint founded in 1955 by Charles Byrne and Frederic Klein owned by the Penguin Group unit of Penguin Random House.', NULL, NULL, NULL)
 GO
-INSERT [dbo].[Publisher] ([PublisherID], [PublishName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (3, N'Simon & Schuster Books', NULL, N'Simon & Schuster LLC is an American publishing house owned by Kohlberg Kravis Roberts since 2023.', NULL, NULL, NULL)
+INSERT [dbo].[Publisher] ([PublisherID], [PublisherName], [PublisherProfileImage], [PublisherDescription], [PublisherAddress], [PublisherWebsite], [PublisherPhone]) VALUES (3, N'Simon & Schuster Books', NULL, N'Simon & Schuster LLC is an American publishing house owned by Kohlberg Kravis Roberts since 2023.', NULL, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Publisher] OFF
 GO
