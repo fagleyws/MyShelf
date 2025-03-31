@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MyShelf_Web</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">MyShelf</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,15 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Signin">Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Books/AddBook">Add Book</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -32,7 +41,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container bg-light p-3">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -40,7 +49,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - MyShelf_Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2025 - MyShelf - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
