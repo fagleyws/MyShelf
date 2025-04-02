@@ -20,6 +20,7 @@ namespace MyShelf_Web.Model
 
         [Display(Name = "Confirm Password")]
         [Required(ErrorMessage = "Confirm Password is required")]
+        [Compare("Password", ErrorMessage = "Password and Confirm Password do not match")]
         public string ConfirmPassword { get; set; }
     }
 }
