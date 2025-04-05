@@ -11,7 +11,7 @@
 </div>
 <form method="post">
     <div class="row my-2">
-        <div class="col-2">
+        <div class="col-4">
             <label asp-for="NewBook.BookTitle" class="form-label"></label>
         </div>
         <div class="col-12">
@@ -20,43 +20,16 @@
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-2">
+        <div class="col-4">
             <label asp-for="NewBook.BookSummary" class="form-label"></label>
         </div>
         <div class="col-12">
-            <textarea asp-for="NewBook.BookSummary" type="text" class="form-control"></textarea>
+            <input asp-for="NewBook.BookSummary" type="text" class="form-control" />
             <span asp-validation-for="NewBook.BookSummary" class="text-danger"></span>
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.BookCoverImage" class="form-label"></label>
-        </div>
-        <div class="col-12">
-            <input asp-for="NewBook.BookCoverImage" type="email" class="form-control" />
-            <span asp-validation-for="NewBook.BookCoverImage" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.Price" class="form-label"></label>
-        </div>
-        <div class="col-12">
-            <input asp-for="NewBook.Price" type="text" class="form-control" />
-            <span asp-validation-for="NewBook.Price" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.PageCount" class="form-label"></label>
-        </div>
-        <div class="col-12">
-            <input asp-for="NewBook.PageCount" type="text" class="form-control" />
-            <span asp-validation-for="NewBook.PageCount" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-2">
+        <div class="col-4">
             <label asp-for="NewBook.ISBN13" class="form-label"></label>
         </div>
         <div class="col-12">
@@ -65,47 +38,77 @@
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.AuthorID"></label>
+        <div class="col-4">
+            <label asp-for="NewBook.BookCoverImage" class="form-label"></label>
         </div>
-        <div class="col-10">
-            <select asp-for="NewBook.AuthorID" class="form-control" asp-items="@Model.Authors"></select>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.PublisherID"></label>
-        </div>
-        <div class="col-10">
-            <select asp-for="NewBook.PublisherID" class="form-control" asp-items="@Model.Publishers"></select>
+        <div class="col-12">
+            <input asp-for="NewBook.BookCoverImage" type="text" class="form-control" />
+            <span asp-validation-for="NewBook.BookCoverImage" class="text-danger"></span>
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.FormatID"></label>
+        <div class="col-4">
+            <label asp-for="NewBook.PageCount" class="form-label"></label>
         </div>
-        <div class="col-10">
-            <select asp-for="NewBook.FormatID" class="form-control" asp-items="@Model.Formats"></select>
+        <div class="col-12">
+            <input asp-for="NewBook.PageCount" type="text" class="form-control" />
+            <span asp-validation-for="NewBook.PageCount" class="text-danger"></span>
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-2">
-            <label asp-for="NewBook.LanguageID"></label>
+        <div class="col-4">
+            <label asp-for="NewBook.Price" class="form-label"></label>
         </div>
-        <div class="col-10">
-            <select asp-for="NewBook.LanguageID" class="form-control" asp-items="@Model.Languages"></select>
+        <div class="col-12">
+            <input asp-for="NewBook.Price" type="text" class="form-control" />
+            <span asp-validation-for="NewBook.Price" class="text-danger"></span>
         </div>
     </div>
-
     <div class="row my-2">
-        <div class="col-2">
+        <div class="col-4">
+            <label asp-for="NewBook.AuthorID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="NewBook.AuthorID" class="form-control" asp-items="Model.Authors"></select>
+            <span asp-validation-for="NewBook.AuthorID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="NewBook.PublisherID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="NewBook.PublisherID" class="form-control" asp-items="Model.Publishers"></select>
+            <span asp-validation-for="NewBook.PublisherID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="NewBook.FormatID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="NewBook.FormatID" class="form-control" asp-items="Model.Formats"></select>
+            <span asp-validation-for="NewBook.FormatID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="NewBook.LanguageID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="NewBook.LanguageID" class="form-control" asp-items="Model.Languages"></select>
+            <span asp-validation-for="NewBook.LanguageID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
             <label class="form-label">Genres</label>
         </div>
-        <div class="col-10">
+        <div class="col-12">
             @foreach(var g in Model.Genres)
             {
-                <input type="checkbox" name="SelectedGenreIDs" class="form-check-input" value="@g.GenreID" checked="@g.IsSelected" />
-                <label>@g.GenreName</label>
+                <input type="checkbox" value="@g.GenreID" class="form-check-input" name="SelectedGenreIDs" checked="@g.IsSelected" />
+                <label class="form-label">@g.GenreName</label>
             }
         </div>
     </div>
