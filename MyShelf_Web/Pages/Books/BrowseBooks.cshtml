@@ -2,3 +2,121 @@
 @model MyShelf_Web.Pages.Books.BrowseBooksModel
 @{
 }
+<div class="row text-center">
+    <div class="col-12">
+        <label class="form-label fs-1">Browse Books</label>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-2">
+        <a asp-page="AddBook" class="btn btn-primary">Add Book</a>
+    </div>
+</div>
+
+<form method="post">
+    @if (Model.Books.Count != 0)
+    {
+        @foreach (var book in @Model.Books)
+        {
+            <div class="row my-2">
+                <div class="col-2"> <!-- left column -->
+                    <img src="@book.BookCoverImage" alt="Book Cover" class="img-thumbnail" />
+                </div>
+                <div class="col-10"> <!-- right column -->
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.BookTitle"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.BookTitle</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.AuthorName"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.AuthorName</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.ISBN13"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.ISBN13</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.PageCount"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.PageCount</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.Price"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.Price</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.PublisherName"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.PublisherName</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.LanguageName"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.LanguageName</label>
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" asp-for="@book.FormatName"></label>
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">@book.FormatName</label>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            @book.BookDescription
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-12">
+                            <a asp-page="EditBook" asp-route-id="@book.BookID" class="btn btn-primary">Edit</a>
+                            <button onclick="return confirm('Are you sure?')" class="btn btn-danger" asp-route-id="@book.BookID"  asp-page-handler="Delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        }
+    }
+    else
+    {
+        <div class="row my-2">
+            <div class="col-12">
+                <label class="form-label">No books yet. Click Add Book to add a new book.</label>
+            </div>
+        </div>
+    }
+</form>

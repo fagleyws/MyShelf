@@ -1,4 +1,120 @@
 ﻿@page
 @model MyShelf_Web.Pages.Books.EditBookModel
 @{
+    Layout = "_Layout-Authenticated";
 }
+<div class="row text-center">
+    <div class="col-12">
+        <label class="form-label fs-1">Edit Book</label>
+    </div>
+
+</div>
+<form method="post">
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.BookTitle" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.BookTitle" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.BookTitle" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.BookSummary" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.BookSummary" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.BookSummary" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.ISBN13" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.ISBN13" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.ISBN13" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.BookCoverImage" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.BookCoverImage" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.BookCoverImage" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.PageCount" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.PageCount" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.PageCount" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.Price" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <input asp-for="CurrentBook.Price" type="text" class="form-control" />
+            <span asp-validation-for="CurrentBook.Price" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.AuthorID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="CurrentBook.AuthorID" class="form-control" asp-items="Model.Authors"></select>
+            <span asp-validation-for="CurrentBook.AuthorID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.PublisherID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="CurrentBook.PublisherID" class="form-control" asp-items="Model.Publishers"></select>
+            <span asp-validation-for="CurrentBook.PublisherID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.FormatID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="CurrentBook.FormatID" class="form-control" asp-items="Model.Formats"></select>
+            <span asp-validation-for="CurrentBook.FormatID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label asp-for="CurrentBook.LanguageID" class="form-label"></label>
+        </div>
+        <div class="col-12">
+            <select asp-for="CurrentBook.LanguageID" class="form-control" asp-items="Model.Languages"></select>
+            <span asp-validation-for="CurrentBook.LanguageID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4">
+            <label class="form-label">Genres</label>
+        </div>
+        <div class="col-12">
+            @foreach (var g in Model.Genres)
+            {
+                <input type="checkbox" value="@g.GenreID" class="form-check-input" name="SelectedGenreIDs" checked="@g.IsSelected" />
+                <label class="form-label">@g.GenreName</label>
+            }
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <button type="submit" class="form-control btn btn-primary">Add Book</button>
+        </div>
+    </div>
+</form>
