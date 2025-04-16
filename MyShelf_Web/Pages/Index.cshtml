@@ -5,9 +5,14 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <button class="btn btn-primary">Update</button>
-    <button class="btn btn-danger">Delete</button>
-    <button class="btn btn-success">Create</button>
+    <div class="row justify-content-start">
+        @foreach(var book in Model.BookCovers)
+        {
+            <div class="col-4">
+                <a asp-page="ViewBook" asp-route-id="@book.BookID">
+                    <img src="@book.BookCoverImage" title="@book.BookTitle by @book.BookAuthor" />
+                </a>
+            </div>
+        }
+    </div>
 </div>
