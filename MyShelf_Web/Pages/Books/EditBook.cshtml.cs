@@ -30,7 +30,48 @@ namespace MyShelf_Web.Pages.Books
             PopulateLanguageList();
             SelectedGenreIDs = PopulateSelectedGenreIDS(id);
             PopulateGenreList();
-            
+
+        }
+
+        public IActionResult OnPost(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(AppHelper.GetDBConnectionString()))
+                    {
+                        string cmdText = "UPDATE Book SET BookTitle = @title, BookSummary = @description, ISBN13 = @isbn, PageCount = @pageCount, Price = @price, LanguageID = @languageID, FormatID = @formatID, PublisherID = @publisherID, AuthorID = @authorID, BookCoverImage = @coverImageURL WHERE BookID = @bookID";
+                        SqlCommand cmd = new SqlCommand(cmdText, conn);
+                        cmd.Parameters.AddWithValue("@title", CurrentBook.BookTitle);
+                        cmd.Parameters.AddWithValue("@description", CurrentBook.BookSummary);
+                        cmd.Parameters.AddWithValue("@isbn", CurrentBook.ISBN13);
+                        cmd.Parameters.AddWithValue("@pageCount", CurrentBook.PageCount);
+                        cmd.Parameters.AddWithValue("@price", CurrentBook.Price);
+                        cmd.Parameters.AddWithValue("@languageID", CurrentBook.LanguageID);
+                        cmd.Parameters.AddWithValue("@formatID", CurrentBook.FormatID);
+                        cmd.Parameters.AddWithValue("@publisherID", CurrentBook.PublisherID);
+                        cmd.Parameters.AddWithValue("@authorID", CurrentBook.AuthorID);
+                        cmd.Parameters.AddWithValue("@coverImageURL", CurrentBook.BookCoverImage);
+                        cmd.Parameters.AddWithValue("@bookID", id);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    return RedirectToPage("BrowseBooks");
+                }                
+                catch
+                {
+                    throw;
+                }
+            }
+            PopulateBookDetails(id);
+            PopulateAuthorList();
+            PopulatePublisherList();
+            PopulateFormatList();
+            PopulateLanguageList();
+            SelectedGenreIDs = PopulateSelectedGenreIDS(id);
+            PopulateGenreList();
+            return Page();
         }
 
         private List<int> PopulateSelectedGenreIDS(int id)
@@ -113,7 +154,7 @@ namespace MyShelf_Web.Pages.Books
                     }
                 }
             }
-            
+
         }
 
         private void PopulateLanguageList()
